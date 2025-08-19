@@ -1,0 +1,59 @@
+/* FONTS */
+
+@font-face { /* Headings — Abolition Test Rough */
+    font-family: "Abolition Test";
+    src: url("fonts/AbolitionTest-Rough.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+
+  @font-face { /* Subheadings — Broadsheet Regular */
+    font-family: "Broadsheet Regular";
+    src: url("fonts/BroadsheetRegular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+
+  @font-face { /* Inter Regular */
+    font-family: "Inter";
+    src: url("fonts/Inter_28pt-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+
+  @font-face { /* Inter Bold */
+    font-family: "Inter";
+    src: url("fonts/Inter_28pt-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+
+  @font-face { /* Inter Italic */
+    font-family: "Inter";
+    src: url("fonts/Inter_28pt-MediumItalic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+
+  h1, h2, h3 {
+    font-family: "Abolition Test", sans-serif;
+  }
+  
+  h4, h5, h6 {
+    font-family: "Broadsheet Regular", serif;
+  }
+  
+  p, li, a, span {
+    font-family: "Inter", sans-serif;
+  }
+
