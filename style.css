@@ -93,10 +93,11 @@ display: grid;
 place-items: center;
 position: relative;
 padding: 0 24px;
-background-image: url("assets/images/hero-1.png");
+background-image: url("assets/images/hero-bg.png");
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
+background-attachment: fixed; 
 }
 
 .hero::before {
@@ -136,26 +137,51 @@ main { padding: 80px 24px; }
 .brand { font-size: 18px; }
 }
 
-html {
-    scroll-behavior: smooth;
-  }
+/* About Section */
   
 .about {
-padding: 80px 20px;
+padding: 100px 20px 100px 20px;
 background: #fff;
 color: #222;
 text-align: center;
+background-image: url("assets/images/about-bg.png");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.about h1 {
+  font-family: "Abolition Test", sans-serif;
+  font-size: 80px;
+  margin-top: 0px;
+  margin-bottom: 15px;
 }
 
 .about h2 {
 font-family: "Broadsheet Regular", serif;
 font-size: 32px;
-margin-bottom: 20px;
+margin-top: 0px;
+margin-bottom: 0px;
 }
 
 .about p {
 max-width: 700px;
 margin: 0 auto;
+margin-bottom: 15px;
 line-height: 1.6;
 font-family: "Inter", sans-serif;
+}
+
+/* Book Mockup */
+.book-mockup {
+min-height: 100vh;
+display: grid;
+place-items: center;
+position: relative;
+padding: 0 24px;
+background-image: url("assets/images/book-mockup.png");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed; 
 }
