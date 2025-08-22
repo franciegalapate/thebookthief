@@ -86,6 +86,12 @@ background: #0e0e0e;
 
 .nav a:hover { text-decoration: underline; }
 
+.nav a.active {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  opacity: 0.9;
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -191,14 +197,30 @@ main { padding: 80px 24px; }
   align-items: center;     
   position: relative;
   padding: 20px;
+  padding-bottom: 50px;
   background-color: #060606;
   text-align: center;
+  --img-h: 250px;
+}
+.author::before {
+  content: "";
+  display: block;
+  height: var(--img-h);
 }
 
 .author-img {
   position: absolute;
   top: -50px;           
+  left: 50%;
+  transform: translateX(-50%);
   width: 500px; 
+  height: auto;
+  z-index: 0; /* behind text */
+}
+
+.author > *:not(.author-img) {
+  position: relative;
+  z-index: 1; /* keeps text above image */
 }
 
 .author h1 {
@@ -235,4 +257,186 @@ main { padding: 80px 24px; }
   position: relative;
   top: -100px;
   right: -500px;
+}
+
+@media (max-width: 900px) {
+  .author { --img-h: 560px; }
+}
+
+/* Footer */
+.site-footer {
+  background: #0e0e0e;
+  color: #aaa;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.site-footer p {
+  margin: 0 0 15px;
+  font-family: "Inter", sans-serif;
+  opacity: 0.8;
+}
+
+.footer-nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #eaeaea;
+  font-family: "Broadsheet Regular", serif;
+  transition: opacity 0.3s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 0.6;
+}
+
+/* About Page */
+
+.about-section {
+  padding: 90px 20px;
+  background: #fff;
+  color: #222;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about-section h2 {
+  font-family: 'Broadsheet Regular', serif;
+  font-size: clamp(24px, 3vw, 36px);
+  margin: 0 0 14px;
+}
+
+.about-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: clamp(14px, 1.6vw, 18px);
+}
+
+/* Divider between sections */
+.about-section + .about-section {
+  position: relative;
+}
+.about-section + .about-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(680px, 80%);
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,.08) 15%,
+    rgba(0,0,0,.14) 50%,
+    rgba(0,0,0,.08) 85%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+.about-section--light {
+  background: #ffffff;
+  color: #222;
+}
+.about-section--dark {
+  background: #0e0e0e;
+  color: #eaeaea;
+}
+.about-section--dark h2 { color: #fff; }
+.about-section--dark p { color: #e6e6e6; }
+
+@media (max-width: 640px) {
+  .about-section { padding: 70px 18px; }
+}
+
+/* ——— Characters Page ——— */
+
+/* Section wrapper: alternates light/dark backgrounds for rhythm */
+.character-section {
+  background: #ffffff;
+  color: #222;
+  padding: 90px 20px;
+}
+.character-section--dark {
+  background: #0e0e0e;
+  color: #eaeaea;
+}
+
+/* Character block: responsive two-column layout */
+.character {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 36px;
+  align-items: center;
+}
+.character--reverse {
+  grid-template-columns: 1.2fr 1fr;
+}
+@media (max-width: 900px) {
+  .character,
+  .character--reverse {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Image container */
+.character__media {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.18);
+}
+.character-section--dark .character__media {
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+/* Image itself */
+.character__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  filter: saturate(0.9) contrast(1.02);
+}
+
+/* Text column */
+.character__body h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 0 0 12px;
+}
+.character__body p {
+  max-width: 620px;
+  line-height: 1.8;
+  font-size: clamp(14px, 1.6vw, 18px);
+  margin: 0;
+  color: inherit;
+}
+
+/* Subtle divider between stacked sections (light only) */
+.character-section + .character-section {
+  position: relative;
+}
+.character-section + .character-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(760px, 86%);
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,.08) 15%,
+    rgba(0,0,0,.14) 50%,
+    rgba(0,0,0,.08) 85%,
+    rgba(0,0,0,0) 100%
+  );
 }
